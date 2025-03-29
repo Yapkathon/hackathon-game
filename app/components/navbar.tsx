@@ -12,6 +12,13 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
             <div className={styles.container}>
               <div className={styles.inner}>
               <div className={styles.content}>{children}</div>
+              <div className={styles.bottomBar}>
+          {['Port', 'Invest', 'Expense', 'Bank', 'Action'].map((label) => (
+            <button key={label} className={styles.button}>
+              {label}
+            </button>
+          ))}
+        </div>
               </div>
             </div>
           )
