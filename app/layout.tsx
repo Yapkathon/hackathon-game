@@ -30,6 +30,7 @@ export default function RootLayout({
       >
         <div className="flex justify-items-center">
           <div className="mobile-container">
+
             <NavBar>
               {children}
             </NavBar>

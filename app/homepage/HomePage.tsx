@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import "./HomePage.css";
+import Link from 'next/link';
 
 export default function HomePage() {
   return (
     <div className="container">
       <Image
-        src="/Logo.png" // Make sure this image is in /public folder
+        src="/logo/logo.png" // Make sure this image is in /public folder
         alt="FinAge Logo"
         width={100}
         height={100}
@@ -16,7 +17,7 @@ export default function HomePage() {
       <h1 className="title">FinAge</h1>
       <p className="subtitle">Financial planning game</p>
 
-      <button className="play-button">PLAY</button>
+      <Link href="/dashboard"><button className="play-button">PLAY</button></Link>
 
       <select className="server-select">
         <option>Please Select Server</option>

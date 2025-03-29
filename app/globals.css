@@ -39,5 +39,10 @@ body {
 .mobile-container {
   width: 393px;
   min-height: 100vh;
+<<<<<<< Updated upstream
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+=======
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+>>>>>>> Stashed changes

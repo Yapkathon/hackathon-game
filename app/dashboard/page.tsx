@@ -1,12 +1,13 @@
 import styles from "./dashboard.module.css"
 import DonutChart from "@/app/components/DonutChart"
+import Link from "next/link";
 
 export default function Dashboard() {
     return (
     <div className="w-full">
         <div className={styles.wrapper}>
       <div className={styles.header}>
-        <div className={styles.ite}><img src="/logo/logo.png" className="w-full h-full object-cover"/></div>
+        <div className={styles.ite}><img src="/logo/setting.png" className="w-full h-full object-cover"/></div>
         <div className={styles.item}>Portfolio</div>
         <div className={styles.item}>47</div>
       </div>
@@ -54,7 +55,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <button className={styles.button}>View my assets</button>
+      <Link href="/assets"><button className={styles.button}>View my assets</button></Link>
     </div>
     </div>
       
