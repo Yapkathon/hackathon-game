@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EDEDED;
-  --foreground: #2F2E2A;
-  --color-gold: #C6BF00;   
-  --color-white: #EBECD0;
-  --color-hard: #D8D8AA;
-  --color-red: #E00000;
-  --color-blue: #000BDF;
-  --color-green: #81B64C;
+  --background: #ededed;
+  --foreground: #2f2e2a;
+  --color-gold: #c6bf00;
+  --color-white: #ebecd0;
+  --color-hard: #d8d8aa;
+  --color-red: #e00000;
+  --color-blue: #000bdf;
+  --color-green: #81b64c;
 }
 
 @theme inline {
@@ -24,7 +24,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -38,5 +39,5 @@ html, body {
 .mobile-container {
   width: 393px;
   min-height: 100vh;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

@@ -6,7 +6,7 @@ import styles from "./navbar.module.css";
 export default function NavBar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isDashboard = pathname.startsWith("/dashboard");
-  const isHomePage = pathname.startsWith("/");
+  const isHomePage = pathname == "/";
 
   if (isDashboard) {
     return (
