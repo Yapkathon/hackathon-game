@@ -1,0 +1,57 @@
+.middle_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+  width: 90%;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #EBECD0;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.topic {
+  background-color: #f8f4e1;
+  font-size: 1.8rem;
+  margin-top: 15px;
+  width:fit-content ;
+  padding: 10px 20px;
+  border-radius: 15px;
+  margin: auto;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.status_bar {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background:#EBECD0;
+  border-radius: 10px;
+  border: 1.5px solid #333;
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.age_button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  background: #a3d977;
+  border-radius: 8px;
+  cursor: pointer;
+}

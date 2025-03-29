@@ -4,7 +4,8 @@
     border: 2px solid #333;
     padding: 1rem;
     text-align: center;
-    width: 240px;
+    width: 133px;
+    height: 205px;
     font-family: sans-serif;
   }
   
@@ -16,22 +17,19 @@
   }
   
   .name {
-    font-weight: 800;
-    font-size: 1.2rem;
+    font-size: 14px;
     margin-bottom: 0.5rem;
     color: #000;
   }
   
   .price {
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 10px;
     margin-bottom: 0.3rem;
     color: #222;
   }
   
   .change {
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 10px;
     color: #24b524;
   }
   
