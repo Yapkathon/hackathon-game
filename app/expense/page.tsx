@@ -216,7 +216,7 @@ export default function Expense() {
               <button
                 key={category}
                 onClick={() => setSelectedTab(category)}
-                className={`p-2 ${
+                className={`p-2 border-1 ${
                   selectedTab === category ? "bg-[#B6B885]" : "bg-white"
                 }`}
               >

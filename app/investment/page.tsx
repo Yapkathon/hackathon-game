@@ -3,16 +3,51 @@ import React, { useState } from "react";
 import TabBook from "../components/tabBook";
 
 export default function InvestmentPage() {
+  type Category = "Crypto" | "Stock" | "Government Bond" | "Lottery";
   const [shares, setShares] = useState(10);
+  const [selectedTab, setSelectedTab] = useState<Category>("Stock");
+  const [selectedInvestment, setSelectedInvestment] = useState<number>(0);
+
+  // ─── ASSETS ───────────────────────────────────────────────────────────────
+  const assets: Record<Category, any[]> = {
+    Crypto: [
+      {
+        imageUrl: "/graph/candleGraph.png",
+        title: "SKBD Coin",
+        price: 30,
+      },
+    ],
+    Stock: [
+      {
+        imageUrl: "/graph/candleGraph.png",
+        title: "NVIDI Corp (High Risk)",
+        price: 109,
+      },
+    ],
+    "Government Bond": [
+      {
+        imageUrl: "/graph/candleGraph.png",
+        title: "Yield to Maturity 5 Year",
+        price: 1,
+      },
+    ],
+    Lottery: [
+      {
+        imageUrl: "/graph/candleGraph.png",
+        title: "Lottery",
+        price: 3,
+      },
+    ],
+  };
 
   return (
     <div className="text-black p-4 flex flex-col items-center">
       <img
-        src="/investSign/investSign.png" // Make sure this image is in /public folder
+        src="/investSign/investSign.png"
         alt="Invest Sign"
-        className="absolute top-9 w-[350px]"
+        className="absolute top-8 w-[350px]"
       />
-      <div className="relative overflow-clip bg-gray-900 text-white py-2 mt-12 w-[393px]">
+      <div className="relative overflow-clip bg-gray-900 text-white py-2 mt-11 w-[393px]">
         <div className="ticker-container flex whitespace-nowrap w-max">
           <div className="ticker-item inline-flex items-center mx-4">
             <span className="font-bold text-green-400">APLE</span>
@@ -62,8 +97,12 @@ export default function InvestmentPage() {
         <p className="font-semibold absolute text-[#ffffff] mx-2 my-1">
           NVDI $109
         </p>
-        <div className="bg-black rounded flex items-center justify-center h-full">
-          <span className="text-green-400">Chart</span>
+        <div className="bg-black rounded flex items-center justify-center h-full w-full">
+          <img
+            src={assets[selectedTab][selectedInvestment].imageUrl}
+            alt="Invest Sign"
+            className="h-full w-full object-cover"
+          />
         </div>
       </div>
       <TabBook>
@@ -139,33 +178,39 @@ export default function InvestmentPage() {
               </div>
             </div>
           </div>
-          Total: ${shares * 100}
-          <div className="flex space-x-2 mt-2 justify-center">
-            <button className="bg-green-500 text-[#ffffff] border-black px-4 py-2 rounded border-1 font-bold w-[70px]">
+          Total: ${shares * assets[selectedTab][selectedInvestment].price}
+          <div className="flex space-x-2 mt-2 justify-center text-2xl">
+            <button className="bg-green-500 text-[#ffffff] border-black py-2 rounded border-1 font-bold w-[70px]">
               BUY
             </button>
-            <button className="bg-red-600 text-[#ffffff] border-black px-4 py-2 rounded border-1 font-bold w-[70px]">
+            <button className="bg-red-600 text-[#ffffff] border-black py-2 rounded border-1 font-bold w-[70px]">
               SELL
             </button>
           </div>
         </div>
-        <div className="tabs flex flex-col">
-          <div>
-            <p>Lottery</p>
-          </div>
-          <div>
-            <p>
-              Government
-              <br />
-              bond
-            </p>
-          </div>
-          <div>
-            <p>Stock</p>
-          </div>
-          <div>
-            <p>Crypto</p>
-          </div>
+        <div className="tabs flex flex-col w-[37px]">
+          {(Object.keys(assets) as Category[]).map((category) => (
+            <button
+              key={category}
+              onClick={() => {
+                setSelectedTab(category);
+                setSelectedInvestment(0);
+              }}
+              className={`leading-none px-1 border-1 ${
+                selectedTab === category ? "bg-[#B6B885]" : "bg-white"
+              }`}
+            >
+              {category == "Government Bond" ? (
+                <p>
+                  Government
+                  <br />
+                  Bond
+                </p>
+              ) : (
+                <p>{category}</p>
+              )}
+            </button>
+          ))}
         </div>
       </TabBook>
     </div>
