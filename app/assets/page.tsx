@@ -23,7 +23,7 @@ export default function Assets() {
         <h2 className="text-[32px]">ASSETS</h2>
       </div>
       <TabBook>
-        <div className="book p-4 bg-white rounded-l-xl w-full h-[650px]">
+        <div className="book p-4 bg-white rounded-l-xl w-full h-[665px]">
     <div className="grid grid-cols-2 gap-4">
       {mockAssets.map((asset, index) => (
         <AssetCard

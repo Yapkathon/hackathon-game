@@ -1,4 +1,5 @@
-// components/InsuranceCard.tsx
+"use client";
+import { useState } from "react";
 import styles from "./insuranceCard.module.css";
 
 type InsuranceCardProps = {
@@ -11,9 +12,15 @@ type InsuranceCardProps = {
 export default function InsuranceCard({
   imageUrl,
   title,
-  isSelected,
+  isSelected: initialSelected,
   description,
 }: InsuranceCardProps) {
+  const [selected, setSelected] = useState(initialSelected);
+
+  const handleToggle = () => {
+    setSelected((prev) => !prev);
+  };
+
   return (
     <div className={styles.card}>
       <img src={imageUrl} alt={title} className={styles.image} />
@@ -23,10 +30,11 @@ export default function InsuranceCard({
 
         <button
           className={`${styles.button} ${
-            isSelected ? styles.selected : styles.unselected
+            selected ? styles.selected : styles.unselected
           }`}
+          onClick={handleToggle}
         >
-          {isSelected ? "UNSELECT" : "SELECT"}
+          {selected ? "UNSELECT" : "SELECT"}
         </button>
 
         <div className={styles.description}>{description}</div>

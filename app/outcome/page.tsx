@@ -2,9 +2,26 @@
 
 import { useState } from "react";
 import "./outcome.css";
+import { useGame } from "../context/GameProvider";
+import { useRouter } from "next/navigation";
+
 
 export default function YearReview() {
   const [year, setYear] = useState(32);
+
+  const { player, setPlayer } = useGame();
+  const router = useRouter();
+  function end() {
+
+    setPlayer((prev) => ({
+      ...prev,
+      // Increase money by `amount`
+      age: prev.age + 1,
+      
+    }));
+    router.push("/dashboard");
+
+  }
 
   const income = [
     { item: "Salary", lastYear: 100, thisYear: 120 },
