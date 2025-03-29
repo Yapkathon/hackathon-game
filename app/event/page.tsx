@@ -47,7 +47,7 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
                 <div>
                     <h2 className={styles.title}>Oh no, a Car Accident!!!</h2>
                     <div className={styles.imageContainer}>
-                        <img src="/carCrash.png" alt="Car Accident" className={styles.image} />
+                        <img src="crash.png" alt="Car Accident" className={styles.image} />
                     </div>
                     <p className={styles.description}>
                     You're driving along when—<strong>BAM!</strong>— another car swerves into your lane! 

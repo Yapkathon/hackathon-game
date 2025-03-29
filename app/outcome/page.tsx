@@ -5,22 +5,18 @@ import "./outcome.css";
 import { useGame } from "../context/GameProvider";
 import { useRouter } from "next/navigation";
 
-
 export default function YearReview() {
   const [year, setYear] = useState(32);
 
   const { player, setPlayer } = useGame();
   const router = useRouter();
   function end() {
-
     setPlayer((prev) => ({
       ...prev,
       // Increase money by `amount`
       age: prev.age + 1,
-      
     }));
     router.push("/dashboard");
-
   }
 
   const income = [
@@ -304,7 +300,10 @@ export default function YearReview() {
             </tbody>
           </table>
         </div>
-        <button className="mt-4 w-full  bg-[#81B64C] text-white py-2 rounded-lg">
+        <button
+          className="mt-4 w-full  bg-[#81B64C] text-white py-2 rounded-lg"
+          onClick={() => end()}
+        >
           Continue
         </button>
       </div>
