@@ -19,6 +19,7 @@
   .topBar {
     display: flex;
     font-size: 24px;
+    z-index: 10;
   }
   
   .stat {

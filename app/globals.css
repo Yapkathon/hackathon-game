@@ -41,3 +41,16 @@ body {
   min-height: 100vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.ticker-container {
+  animation: ticker 15s linear infinite;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
