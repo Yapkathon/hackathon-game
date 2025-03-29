@@ -41,3 +41,12 @@ body {
   min-height: 100vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.scrollbar-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
