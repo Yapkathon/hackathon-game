@@ -1,29 +1,38 @@
-'use client'
+"use client";
 
-import { usePathname } from 'next/navigation'
-import styles from './navbar.module.css'
+import { usePathname } from "next/navigation";
+import styles from "./navbar.module.css";
 
 export default function NavBar({ children }: { children: React.ReactNode }) {
-    const pathname = usePathname()
-    const isDashboard = pathname.startsWith('/dashboard')
-  
-    if (isDashboard) {
-        return (
-            <div className={styles.container}>
-              <div className={styles.inner}>
-              <div className={styles.content}>{children}</div>
-              <div className={styles.bottomBar}>
-          {['Port', 'Invest', 'Expense', 'Bank', 'Action'].map((label) => (
-            <button key={label} className={styles.button}>
-              {label}
-            </button>
-          ))}
-        </div>
-              </div>
-            </div>
-          )
-    }
+  const pathname = usePathname();
+  const isDashboard = pathname.startsWith("/dashboard");
+  const isHomePage = pathname.startsWith("/");
+
+  if (isDashboard) {
     return (
+      <div className={styles.container}>
+        <div className={styles.inner}>
+          <div className={styles.content}>{children}</div>
+          <div className={styles.bottomBar}>
+            {["Port", "Invest", "Expense", "Bank", "Action"].map((label) => (
+              <button key={label} className={styles.button}>
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  } else if (isHomePage) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.inner}>
+          <div className={styles.content}>{children}</div>
+        </div>
+      </div>
+    );
+  }
+  return (
     <div className={styles.container}>
       <div className={styles.inner}>
         {/* Top Bar */}
@@ -44,7 +53,7 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
 
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
-          {['Port', 'Invest', 'Expense', 'Bank', 'Action'].map((label) => (
+          {["Port", "Invest", "Expense", "Bank", "Action"].map((label) => (
             <button key={label} className={styles.button}>
               {label}
             </button>
@@ -52,5 +61,5 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

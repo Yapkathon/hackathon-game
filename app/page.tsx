@@ -1,7 +1,7 @@
+import HomePage from "./homepage/HomePage";
+
 export default function Home() {
   return (
-    <div className="text-2xl">
-        HomePage
-    </div>
+    <HomePage/>
   );
 }

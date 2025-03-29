@@ -6,8 +6,8 @@ type DonutChartProps = {
   
   export default function DonutChart({ cash, debt, assets }: DonutChartProps) {
     const total = cash + debt + assets
-    const radius = 60
-    const stroke =40
+    const radius = 50
+    const stroke =30
     const circumference = 2 * Math.PI * radius
   
     const getStrokeDash = (value: number) => (circumference * value) / total
@@ -32,7 +32,7 @@ type DonutChartProps = {
     ]
   
     return (
-        <div className="py-8">
+        <div className="">
 <svg width="160" height="160" viewBox="0 0 160 160">
         {segments.map((segment, index) => (
           <circle
