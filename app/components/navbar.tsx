@@ -3,11 +3,14 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import { useGame } from "../context/GameProvider";
 
 export default function NavBar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isDashboard = pathname.startsWith("/dashboard");
   const isHomePage = pathname == "/";
+
+  const { player, formatLargeNumber } = useGame();
 
   const navLinks = [
     { label: "Port", href: "/dashboard" },
@@ -46,11 +49,11 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
       <div className={styles.inner}>
         {/* Top Bar */}
         <div className={styles.topBar}>
-          <div className={styles.stat}>🎓 <span>16</span></div>
+          <div className={styles.stat}>🎓 <span>{player.knowledge}</span></div>
           <div className={styles.centerStatWrapper}>
-            <div className={styles.centerStat}>$120k</div>
+            <div className={styles.centerStat}>{formatLargeNumber(player.money)}</div>
           </div>
-          <div className={styles.stat}>😄 <span>27</span></div>
+          <div className={styles.stat}>😄 <span>{player.happiness}</span></div>
         </div>
 
         {/* Content */}

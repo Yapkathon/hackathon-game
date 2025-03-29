@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar";
 import { adlam } from './font'
+import { GameProvider } from "./context/GameProvider";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,11 +33,12 @@ export default function RootLayout({
         <div className="flex justify-items-center">
           <div className="mobile-container">
 
+            <GameProvider>
             <NavBar>
               {children}
             </NavBar>
-            
-          </div>
+              </GameProvider>
+              </div>
         </div>
       </body>
     </html>

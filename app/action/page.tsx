@@ -1,5 +1,6 @@
 import styles from "./action.module.css"
 import ActionCard from "./../components/ActionCard";
+import Link from "next/link";
 
 export default function Action() {
     return (
@@ -20,7 +21,7 @@ export default function Action() {
                 <ActionCard icon="🔎" title="Find Career" value="4 jobs offer" cost="" goal={1}/>
                 <ActionCard icon="✈️" title="Travel" value="😊 +200" cost="$20K" goal={1}/>
             </div>
-            <button className={styles.age_button}>AGE</button>
+            <Link href="/event"><button className={styles.age_button}>AGE</button></Link>
         </div>
     </div>
   );

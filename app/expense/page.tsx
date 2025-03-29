@@ -11,7 +11,16 @@ export default function Expense() {
     // Update your category type to include the new categories
     type Category = "House" | "Car" | "Clothing" | "Food" | "Insurance";
     const [selectedTab, setSelectedTab] = useState<Category>("House");
-  
+    const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const handleSelect = (index: number) => {
+      // If the user clicked the same item again, unselect it
+      if (selectedIndex === index) {
+        setSelectedIndex(null);
+      } else {
+        // Otherwise, select the new item
+        setSelectedIndex(index);
+      }
+    };
     // ─── ASSETS ───────────────────────────────────────────────────────────────
     const assets: Record<Category, any[]> = {
       House: [
@@ -180,7 +189,7 @@ export default function Expense() {
   
         <TabBook>
           {/* The "book" section where items are displayed */}
-          <div className="book p-4 bg-white rounded-l-xl w-full h-[650px] overflow-y-auto flex flex-col gap-3 scrollbar-hidden">
+          <div className="book p-4 bg-white rounded-l-xl w-full h-[667px] overflow-y-auto flex flex-col gap-3 scrollbar-hidden">
             {assets[selectedTab].length > 0 ? (
               assets[selectedTab].map((item, index) => (
                 <div key={index}>

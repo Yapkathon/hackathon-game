@@ -1,5 +1,7 @@
+"use client"
 import React from "react";
 import styles from "./eventCard.module.css";
+import Link from "next/link";
 
 interface EventProps {
     chooseCareer?: boolean; 
@@ -13,6 +15,7 @@ const jobs = [
 ];
 
 export default function Event(/*{ chooseCareer = false }: EventProps*/) {
+    
     return (
         <div>
             <div className={styles.head}>
@@ -52,11 +55,12 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
                     The damage isn't catastrophic, but your car is definitely worse for wear.
                     </p>
                     <div className={styles.options}>
-                        <button className={`${styles.btn} ${styles.disabledOption}`}>☎️ Call Insurance<br />(Required: Car Insurance)</button>
-                        <button className={`${styles.btn} ${styles.payOption}`}>💸 Pay Out of Pocket ($30k, 😁 -40)</button>
-                        <button className={`${styles.btn} ${styles.settleOption}`}>
+                    <Link href="/outcome"><button className={`${styles.btn} ${styles.disabledOption}`}>☎️ Call Insurance<br />(Required: Car Insurance)</button></Link>
+                    <Link href="/outcome"><button className={`${styles.btn} ${styles.payOption}`}>💸 Pay Out of Pocket ($30k, 😁 -40)</button></Link>
+                    <Link href="/outcome"><button className={`${styles.btn} ${styles.settleOption}`}>
                             🤝 Try to Settle Privately<br />(70%: $10k, 😁 -10 | <br />30%: $40k, 😁 -60)
                         </button>
+                        </Link>
                     </div>
                 </div>
                 /*)} */}
