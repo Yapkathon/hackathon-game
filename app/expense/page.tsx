@@ -16,7 +16,7 @@ export default function Expense() {
     const assets: Record<Category, any[]> = {
       House: [
         {
-          imageUrl: "/pic/willow.png",
+          imageUrl: "pic/willow.png",
           title: "Willow Creek Cottage",
           price: "$1.8M",
           beds: 3,
@@ -25,7 +25,7 @@ export default function Expense() {
           address: "14 Lavender Lane, Cotswolds, UK",
         },
         {
-          imageUrl: "/pic/sunset.png",
+          imageUrl: "pic/sunset.png",
           title: "Sunset Palm Villa",
           price: "$3.4M",
           beds: 5,
@@ -34,7 +34,7 @@ export default function Expense() {
           address: "718 Ocean Breeze Rd, Malibu, CA",
         },
         {
-          imageUrl: "/pic/skyfloat.png",
+          imageUrl: "pic/skyfloat.png",
           title: "Sky Float Home",
           price: "$2.5M",
           beds: 2,
@@ -43,7 +43,7 @@ export default function Expense() {
           address: "Balloon District, Paradise Heights",
         },
         {
-          imageUrl: "/pic/rustwood.png",
+          imageUrl: "pic/rustwood.png",
           title: "Rustwood Tiny Cabin",
           price: "$320K",
           beds: 1,
@@ -52,7 +52,7 @@ export default function Expense() {
           address: "73 Pinecone Trail, Aspen, CO",
         },
         {
-          imageUrl: "/pic/baroque.png",
+          imageUrl: "pic/baroque.png",
           title: "Baroque Manor Estate",
           price: "$8.7M",
           beds: 6,
@@ -64,31 +64,31 @@ export default function Expense() {
   
       Car: [
         {
-          imageUrl: "/pic/byd.png",
+          imageUrl: "pic/byd.png",
           name: "BYD Yangwang U9",
           price: "$236,000",
           specs: ["V12 Hybrid"],
         },
         {
-          imageUrl: "/pic/mg.png",
+          imageUrl: "pic/mg.png",
           name: "MG Cyberster",
           price: "$45,100",
           specs: ["V6 Plug-in Hybrid"],
         },
         {
-          imageUrl: "/pic/renault.png",
+          imageUrl: "pic/renault.png",
           name: "Renault Clio",
           price: "$11,000",
           specs: ["Electric"],
         },
         {
-          imageUrl: "/pic/tesla.png",
+          imageUrl: "pic/tesla.png",
           name: "Tesla Model 3",
           price: "$44,130",
           specs: ["Electric"],
         },
         {
-          imageUrl: "/pic/bmw.png",
+          imageUrl: "pic/bmw.png",
           name: "BMW i5",
           price: "$67,795",
           specs: ["Electric Luxury"],
@@ -98,19 +98,19 @@ export default function Expense() {
       // ─── CLOTHING DATA ─────────────────────────────────────────────────────
       Clothing: [
         {
-          imageUrl: "/pic/hat.png",
+          imageUrl: "pic/hat.png",
           name: "Red Top Hat",
           price: "$140",
           happiness: "+5 Style",
         },
         {
-          imageUrl: "/pic/glasses.png",
+          imageUrl: "pic/glasses.png",
           name: "Summer Glasses",
           price: "$90",
           happiness: "+3 Sunshine",
         },
         {
-          imageUrl: "/pic/shirt.png",
+          imageUrl: "pic/shirt.png",
           name: "Formal Green Shirt",
           price: "$200",
           happiness: "+2 Formality",
@@ -120,28 +120,28 @@ export default function Expense() {
       // ─── FOOD DATA ─────────────────────────────────────────────────────────
       Food: [
         {
-          imageUrl: "/pic/1.png",
+          imageUrl: "pic/1.png",
           title: "Fast Food",
           costPerYear: "$3,400",
           happiness: 10,
           description: "Convenient, cheap, but not always healthy",
         },
         {
-          imageUrl: "/pic/2.png",
+          imageUrl: "pic/2.png",
           title: "Home Meals",
           costPerYear: "$5,200",
           happiness: 25,
           description: "Fresh, balanced, and cooked with love",
         },
         {
-          imageUrl: "/pic/3.png",
+          imageUrl: "pic/3.png",
           title: "Healthy Cuisine",
           costPerYear: "$7,800",
           happiness: 35,
           description: "Nutrient-rich meals that fuel your body and mind",
         },
         {
-          imageUrl: "/pic/4.png",
+          imageUrl: "pic/4.png",
           title: "Premium Food",
           costPerYear: "$10,000",
           happiness: 50,
@@ -152,19 +152,19 @@ export default function Expense() {
       // ─── INSURANCE DATA ────────────────────────────────────────────────────
       Insurance: [
         {
-          imageUrl: "/pic/7.png",
+          imageUrl: "pic/7.png",
           title: "Home Insurance",
           isSelected: false,
           description: "Covers your house in case of theft or natural disaster",
         },
         {
-          imageUrl: "/pic/6.png",
+          imageUrl: "pic/6.png",
           title: "Car Insurance",
           isSelected: false,
           description: "Protects your vehicle from accidents and damage",
         },
         {
-          imageUrl: "/pic/5.png",
+          imageUrl: "pic/5.png",
           title: "Life Insurance",
           isSelected: true,
           description: "Financial security for your loved ones",

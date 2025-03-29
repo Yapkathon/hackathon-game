@@ -6,13 +6,13 @@ export default function Assets() {
           name: "Willow Creek Cottage",
           price: "$2M",
           change: "(+11.11%)",
-          imageUrl: "/pic/willow.png",
+          imageUrl: "pic/willow.png",
         },
         {
           name: "BYD Yangwang U9",
           price: "$130,000",
           change: "(+4.75%)",
-          imageUrl: "/pic/byd.png",
+          imageUrl: "pic/byd.png",
         },
       ];
 
