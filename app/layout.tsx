@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import NavBar from "./_components/navbar";
+import { adlam } from './font'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,11 +24,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={adlam.variable}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+         className="font-display" style={{ fontFamily: 'var(--font-adlam)' }}
       >
-        {children}
+        <div className="flex justify-items-center">
+          <div className="mobile-container">
+            <NavBar>
+              {children}
+            </NavBar>
+            
+          </div>
+        </div>
       </body>
     </html>
   );

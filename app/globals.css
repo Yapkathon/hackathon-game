@@ -3,6 +3,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-gold: #C6BF00;   
+  --color-white: #EBECD0;
+  --color-hard: #D8D8AA;
+  --color-red: #E00000;
+  --color-blue: #000BDF;
+  --color-green: #81B64C;
 }
 
 @theme inline {
@@ -23,4 +29,21 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  color: var(--background);
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mobile-container {
+  width: 390px;
+  min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
