@@ -25,8 +25,7 @@
   .stat {
     flex: 1;
     background-color: #fdf9d0;
-    border: 1px solid black;
-    border-bottom: none;
+    border-bottom: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,6 +41,7 @@
   .centerStat {
     background-color: #fdf9d0;
     border: 1px solid black;
+    border-top: none;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
     padding: 0.25rem 2rem;

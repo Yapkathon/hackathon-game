@@ -14,8 +14,8 @@ export default function ActionCard({ icon, title, value, cost, goal }: ActionCar
     <div className={styles.card}>
       <div className={styles.icon}>{icon}</div>
       <div className={styles.title}>{title}</div>
-      {value && <div className={styles.value}>{value}</div>}
-      {cost && <div className={styles.cost}>{cost}</div>}
+      {value && <p className={styles.value}>{value}</p>}
+      {cost && <p className={styles.cost}>{cost}</p>}
 
       {goal && <div className={styles.goalBox}>
         🎯 <span>{goal}</span>

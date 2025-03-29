@@ -1,13 +1,12 @@
 "use client"; // only if you plan to add interactivity later
 
-import Image from "next/image";
 import "./HomePage.css";
 import Link from 'next/link';
 
 export default function HomePage() {
   return (
     <div className="container">
-      <Image
+      <img
         src="logo/logo.png" // Make sure this image is in /public folder
         alt="FinAge Logo"
         width={100}

@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import styles from "./outcome.module.css";
+import "./outcome.css";
 
 export default function YearReview() {
   const [year, setYear] = useState(32);
 
   const income = [
     { item: "Salary", lastYear: 100, thisYear: 120 },
-    { item: "Sell Investment", lastYear: 7, thisYear: 2 },
+    { item: "Investment Sold", lastYear: 7, thisYear: 2 },
     { item: "Events", lastYear: 1, thisYear: 2 },
   ];
 
@@ -19,7 +19,7 @@ export default function YearReview() {
     { item: "Insurance", lastYear: 10, thisYear: 18 },
     { item: "Loan Payment", lastYear: 2, thisYear: 2 },
     { item: "Assets", lastYear: 0, thisYear: 45 },
-    { item: "Buy Investment", lastYear: 10, thisYear: 8 },
+    { item: "Investment Bought", lastYear: 10, thisYear: 8 },
     { item: "Tutor", lastYear: 10, thisYear: 10 },
     { item: "Travel", lastYear: 20, thisYear: 20 },
     { item: "Events", lastYear: 3, thisYear: 1 },
@@ -31,81 +31,266 @@ export default function YearReview() {
     { item: "Happiness", lastYear: 27, thisYear: 35 },
   ];
 
+  const totalIncomeThisYear = income.reduce(
+    (sum, item) => sum + item.thisYear,
+    0
+  );
+
+  const totalExpensesThisYear = expenses.reduce(
+    (sum, item) => sum + item.thisYear,
+    0
+  );
+
+  const totalStatsThisYear = stats.reduce(
+    (sum, item) => sum + item.thisYear,
+    0
+  );
+
+  const totalIncomeLastYear = income.reduce(
+    (sum, item) => sum + item.lastYear,
+    0
+  );
+
+  const totalExpensesLastYear = expenses.reduce(
+    (sum, item) => sum + item.lastYear,
+    0
+  );
+
+  const totalStatsLastYear = stats.reduce(
+    (sum, item) => sum + item.lastYear,
+    0
+  );
+
   return (
     <div>
-      <div className={styles.head}>
-            <div className={styles.topic}>Outcome</div>
-            <div className={styles.topic}>⌛️3/9</div>
+      <div className="head">
+        <div className="topic">Outcome</div>
+        <div className="topic">⌛️3/9</div>
       </div>
 
-      <div className={styles.container}>
-        <h2 className={styles.title}>Year 32 Review</h2>
-        
-        <div className={styles.section}>
-          <h1 className="text-center">Income</h1>
-          <table className={styles.table}>
+      <div className="container">
+        <h2 className="title">Year {year} Review</h2>
+
+        <div className="mt-2 w-full  flex flex-col items-center">
+          <h3 className="text-lg font-semibold">Income</h3>
+          <table className="w-full mt-2 border-collapse text-xs shadow-lg">
             <thead>
-              <tr>
-                <th>Items</th>
-                <th>Last Year</th>
-                <th>This Year</th>
+              <tr className="bg-[#D8D8AA]">
+                <th className="border p-2 w-[38%]">Item</th>
+                <th className="border p-2">Last Year</th>
+                <th className="border p-2 w-[38%]">This Year</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Salary</td><td>100k</td><td>120k (▲20%)</td></tr>
-              <tr><td>Sell Investment</td><td>7k</td><td className={styles.negative}>2k (▼71%)</td></tr>
-              <tr><td>Events</td><td>1k</td><td>2k (▲100%)</td></tr>
-              <tr><td><strong>Total</strong></td><td>108k</td><td>124k (▲15%)</td></tr>
+              {income.map((row, index) => (
+                <tr key={index} className="text-center">
+                  <td className="border p-2">{row.item}</td>
+                  <td className="border p-2">{row.lastYear}k</td>
+                  <td
+                    className={`border p-2 ${
+                      (row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )) < 0
+                        ? "text-red-500"
+                        : "text-black"
+                    }`}
+                  >
+                    {`${row.thisYear}k
+                      (${row.thisYear - row.lastYear >= 0 ? "▲" : "▼"}${
+                      row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )
+                    }
+                      %)`}
+                  </td>
+                </tr>
+              ))}
+              <tr key={income.length} className="text-center">
+                <td className="border p-2">Total</td>
+                <td className="border p-2">{totalIncomeLastYear}k</td>
+                <td
+                  className={`border p-2 ${
+                    (totalIncomeLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalIncomeThisYear) / totalIncomeLastYear -
+                            100
+                        )) < 0
+                      ? "text-red-500"
+                      : "text-black"
+                  }`}
+                >
+                  {`${totalIncomeThisYear}k
+                      (${
+                        totalIncomeThisYear - totalIncomeLastYear >= 0
+                          ? "▲"
+                          : "▼"
+                      }${
+                    totalIncomeLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalIncomeThisYear) / totalIncomeLastYear -
+                            100
+                        )
+                  }
+                      %)`}
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-
-        <div className={styles.section}>
-          <h1 className="text-center">Expense</h1>
-          <table className={styles.table}>
+        <div className="mt-2 w-full  flex flex-col items-center">
+          <h3 className="text-lg font-semibold">Expense</h3>
+          <table className="w-full mt-2 border-collapse border text-xs shadow-lg">
             <thead>
-              <tr>
-                <th>Items</th>
-                <th>Last Year</th>
-                <th>This Year</th>
+              <tr className="bg-[#D8D8AA]">
+                <th className="border p-2 w-[38%]">Item</th>
+                <th className="border p-2">Last Year</th>
+                <th className="border p-2 w-[38%]">This Year</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Accommodation</td><td>20k</td><td className={styles.negative}>24k (▲20%)</td></tr>
-              <tr><td>Food</td><td>5k</td><td className={styles.negative}>7k (▲40%)</td></tr>
-              <tr><td>Transport</td><td>4k</td><td className={styles.positive}>2k (▼50%)</td></tr>
-              <tr><td>Insurance</td><td>10k</td><td className={styles.negative}>18k (▲80%)</td></tr>
-              <tr><td>Loan Payment</td><td>2k</td><td>2k</td></tr>
-              <tr><td>Assets</td><td>-</td><td className={styles.new}>45k (NEW)</td></tr>
-              <tr><td>Buy Investment</td><td>10k</td><td className={styles.positive}>8k (▼20%)</td></tr>
-              <tr><td>Travel</td><td>20k</td><td>10k</td></tr>
-              <tr><td>Events</td><td>3k</td><td className={styles.positive}>1k (▼67%)</td></tr>
-              <tr><td><strong>Total</strong></td><td>84k</td><td className={styles.negative}>109k (▲30%)</td></tr>
+              {expenses.map((row, index) => (
+                <tr key={index} className="text-center">
+                  <td className="border p-2">{row.item}</td>
+                  <td className="border p-2">{row.lastYear}k</td>
+                  <td
+                    className={`border p-2 ${
+                      (row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )) < 0
+                        ? "text-red-500"
+                        : "text-black"
+                    }`}
+                  >
+                    {`${row.thisYear}k
+                      (${row.thisYear - row.lastYear >= 0 ? "▲" : "▼"}${
+                      row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )
+                    }
+                      %)`}
+                  </td>
+                </tr>
+              ))}
+              <tr key={income.length} className="text-center">
+                <td className="border p-2">Total</td>
+                <td className="border p-2">{totalExpensesLastYear}k</td>
+                <td
+                  className={`border p-2 ${
+                    (totalExpensesLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalExpensesThisYear) /
+                            totalExpensesLastYear -
+                            100
+                        )) < 0
+                      ? "text-red-500"
+                      : "text-black"
+                  }`}
+                >
+                  {`${totalExpensesThisYear}k
+                      (${
+                        totalExpensesThisYear - totalExpensesLastYear >= 0
+                          ? "▲"
+                          : "▼"
+                      }${
+                    totalExpensesLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalExpensesThisYear) /
+                            totalExpensesLastYear -
+                            100
+                        )
+                  }
+                      %)`}
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-
-        <div className={styles.section}>
-          <h1 className="text-center">Stats</h1>
-          <table className={styles.table}>
+        <div className="mt-2 w-full  flex flex-col items-center ">
+          <h3 className="text-lg font-semibold">Stats</h3>
+          <table className="w-full mt-2 border-collapse border text-xs shadow-lg">
             <thead>
-              <tr>
-                <th>Items</th>
-                <th>Last Year</th>
-                <th>This Year</th>
+              <tr className="bg-[#D8D8AA]">
+                <th className="border p-2 w-[38%]">Item</th>
+                <th className="border p-2">Last Year</th>
+                <th className="border p-2 w-[38%]">This Year</th>
               </tr>
             </thead>
             <tbody>
-              <tr><td>Net Worth</td><td>120k</td><td>135k (▲13%)</td></tr>
-              <tr><td>Knowledge</td><td>16</td><td>18 (▲13%)</td></tr>
-              <tr><td>Happiness</td><td>27</td><td>35 (▲30%)</td></tr>
-              <tr><td>Occupation</td><td>Software Engineer</td><td>Entrepreneur</td></tr>
+              {stats.map((row, index) => (
+                <tr key={index} className="text-center">
+                  <td className="border p-2">{row.item}</td>
+                  <td className="border p-2">{row.lastYear}k</td>
+                  <td
+                    className={`border p-2 ${
+                      (row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )) < 0
+                        ? "text-red-500"
+                        : "text-black"
+                    }`}
+                  >
+                    {`${row.thisYear}k
+                      (${row.thisYear - row.lastYear >= 0 ? "▲" : "▼"}${
+                      row.lastYear == 0
+                        ? 1
+                        : Math.round(
+                            (100.0 * row.thisYear) / row.lastYear - 100
+                          )
+                    }
+                      %)`}
+                  </td>
+                </tr>
+              ))}
+              <tr key={income.length} className="text-center">
+                <td className="border p-2">Total</td>
+                <td className="border p-2">{totalStatsLastYear}k</td>
+                <td
+                  className={`border p-2 ${
+                    (totalStatsLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalStatsThisYear) / totalStatsLastYear -
+                            100
+                        )) < 0
+                      ? "text-red-500"
+                      : "text-black"
+                  }`}
+                >
+                  {`${totalStatsThisYear}k
+                      (${
+                        totalStatsThisYear - totalStatsLastYear >= 0 ? "▲" : "▼"
+                      }${
+                    totalStatsLastYear == 0
+                      ? 1
+                      : Math.round(
+                          (100.0 * totalStatsThisYear) / totalStatsLastYear -
+                            100
+                        )
+                  }
+                      %)`}
+                </td>
+              </tr>
             </tbody>
           </table>
         </div>
-
-        <button className={styles.continueButton}>Continue</button>
+        <button className="mt-4 w-full  bg-[#81B64C] text-white py-2 rounded-lg">
+          Continue
+        </button>
       </div>
     </div>
   );
-} 
+}

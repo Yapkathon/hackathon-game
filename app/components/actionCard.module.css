@@ -1,20 +1,19 @@
 .card {
-  height: 230px;
+  height: 190px;
   background-color: #D8D8AA;
   border-radius: 12px;
   border: 1.5px solid #333;
   padding: 1rem;
-  width: 130px;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
   align-items: center;
   cursor: pointer;
 }
 
 .icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .title {
