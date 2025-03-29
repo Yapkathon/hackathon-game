@@ -4,20 +4,22 @@ import styles from "./actionCard.module.css";
 type ActionCardProps = {
   icon: string;       // emoji for the action (e.g. 📚)
   title: string;      // action name (e.g. Study)
-  value: number;      // stat value (e.g. +2)
-  goal: number;       // 🎯 value
+  value?: string;      // stat value (e.g. 🎓 +2)
+  cost?: string;       // cost from action (e.g. $ 10K)
+  goal?: number;       // 🎯 value
 };
 
-export default function ActionCard({ icon, title, value, goal }: ActionCardProps) {
+export default function ActionCard({ icon, title, value, cost, goal }: ActionCardProps) {
   return (
     <div className={styles.card}>
       <div className={styles.icon}>{icon}</div>
       <div className={styles.title}>{title}</div>
-      <div className={styles.value}>🎓 +{value}</div>
+      {value && <div className={styles.value}>{value}</div>}
+      {cost && <div className={styles.cost}>{cost}</div>}
 
-      <div className={styles.goalBox}>
+      {goal && <div className={styles.goalBox}>
         🎯 <span>{goal}</span>
-      </div>
+      </div>}
     </div>
   );
 }

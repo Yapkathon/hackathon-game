@@ -1,41 +1,46 @@
 .card {
-    background-color: #e7e9c5;
+    height: 230px;
+    background-color: #D8D8AA;
     border-radius: 12px;
     border: 1.5px solid #333;
     padding: 1rem;
-    width: 130px;
+    width: 150px;
     text-align: center;
-    font-family: sans-serif;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
     align-items: center;
+    cursor: pointer;
   }
   
   .icon {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   
   .title {
-    font-weight: 700;
     font-size: 1.1rem;
     color: #000;
   }
   
   .value {
     font-size: 1rem;
-    font-weight: 600;
     color: #222;
+  }
+
+  .cost {
+    font-size: 1rem;
+    color: #E00000;
   }
   
   .goalBox {
     background: #fdfaf1;
     border: 2px solid #333;
-    padding: 0.4rem 1rem;
+    padding: 5px 10px;
     border-radius: 12px;
-    font-weight: bold;
     display: flex;
     align-items: center;
     gap: 0.3rem;
     font-size: 0.95rem;
+    margin-top: auto;
+    cursor: pointer;
   }  
