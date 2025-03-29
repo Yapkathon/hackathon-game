@@ -2,8 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   // Disable Next.js dev overlay
-  devIndicators: false,
-  basePath: "/public",
+  devIndicators: false
 };
 
 export default nextConfig;

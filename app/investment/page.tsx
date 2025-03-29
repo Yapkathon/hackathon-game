@@ -12,28 +12,28 @@ export default function InvestmentPage() {
   const assets: Record<Category, any[]> = {
     Crypto: [
       {
-        imageUrl: "/graph/candleGraph.png",
+        imageUrl: "graph/candleGraph.png",
         title: "SKBD Coin",
         price: 30,
       },
     ],
     Stock: [
       {
-        imageUrl: "/graph/candleGraph.png",
+        imageUrl: "graph/candleGraph.png",
         title: "NVIDI Corp (High Risk)",
         price: 109,
       },
     ],
     "Government Bond": [
       {
-        imageUrl: "/graph/candleGraph.png",
+        imageUrl: "graph/candleGraph.png",
         title: "Yield to Maturity 5 Year",
         price: 1,
       },
     ],
     Lottery: [
       {
-        imageUrl: "/graph/candleGraph.png",
+        imageUrl: "graph/candleGraph.png",
         title: "Lottery",
         price: 3,
       },
@@ -43,7 +43,7 @@ export default function InvestmentPage() {
   return (
     <div className="text-black p-4 flex flex-col items-center">
       <img
-        src="/investSign/investSign.png"
+        src="investSign/investSign.png"
         alt="Invest Sign"
         className="absolute top-8 w-[350px]"
       />

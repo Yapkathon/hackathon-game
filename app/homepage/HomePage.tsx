@@ -8,7 +8,7 @@ export default function HomePage() {
   return (
     <div className="container">
       <Image
-        src="/logo/logo.png" // Make sure this image is in /public folder
+        src="logo/logo.png" // Make sure this image is in /public folder
         alt="FinAge Logo"
         width={100}
         height={100}

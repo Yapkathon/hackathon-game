@@ -7,7 +7,7 @@ export default function Dashboard() {
     <div className="w-full">
         <div className={styles.wrapper}>
       <div className={styles.header}>
-        <div className={styles.ite}><img src="/logo/setting.png" className="w-full h-full object-cover"/></div>
+        <div className={styles.ite}><img src="logo/setting.png" className="w-full h-full object-cover"/></div>
         <div className={styles.item}>Portfolio</div>
         <div className={styles.item}>47</div>
       </div>
@@ -15,7 +15,7 @@ export default function Dashboard() {
 
 
         <div className={styles.container}>
-      <img src="/profile/profile1.png" className={styles.avatar} />
+      <img src="profile/profile1.png" className={styles.avatar} />
 
       <div className={styles.username}>SIER#8724</div>
 
