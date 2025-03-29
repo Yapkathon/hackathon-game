@@ -12,19 +12,19 @@ export default function InvestmentPage() {
   const investments: Record<Category, any[]> = {
     Crypto: [
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock1.png",
         title: "SKBD Coin",
         symbol: "SKBD",
         price: 30,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock2.png",
         title: "SGMA Coin",
         symbol: "SGMA",
         price: 67,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock3.png",
         title: "DIGE Coin",
         symbol: "DIGE",
         price: 120,
@@ -32,25 +32,25 @@ export default function InvestmentPage() {
     ],
     Stock: [
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock1.png",
         title: "NVIDI Corp (High Risk)",
         symbol: "NVDI",
         price: 109,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock2.png",
         title: "J.K.Mogging (Moderate Risk)",
         symbol: "JKM",
         price: 130,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock3.png",
         title: "Nikola Inc (Low Risk)",
         symbol: "NKLA",
         price: 70,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock1.png",
         title: "SnP 50 (Mutual Funds)",
         symbol: "SNP",
         price: 200,
@@ -58,13 +58,13 @@ export default function InvestmentPage() {
     ],
     "Government Bond": [
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock2.png",
         title: "Yield to Maturity 5 Year",
         symbol: "GOVT YTM 5",
         price: 1000,
       },
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock3.png",
         title: "Yield to Maturity 10 Year",
         symbol: "GOVT YTM 10",
         price: 1000,
@@ -72,7 +72,7 @@ export default function InvestmentPage() {
     ],
     Lottery: [
       {
-        imageUrl: "graph/candleGraph.png",
+        imageUrl: "graph/stock1.png",
         title: "Lottery",
         price: 5,
       },
