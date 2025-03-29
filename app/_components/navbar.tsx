@@ -1,7 +1,22 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
 import styles from './navbar.module.css'
 
 export default function NavBar({ children }: { children: React.ReactNode }) {
-  return (
+    const pathname = usePathname()
+    const isDashboard = pathname.startsWith('/dashboard')
+  
+    if (isDashboard) {
+        return (
+            <div className={styles.container}>
+              <div className={styles.inner}>
+              <div className={styles.content}>{children}</div>
+              </div>
+            </div>
+          )
+    }
+    return (
     <div className={styles.container}>
       <div className={styles.inner}>
         {/* Top Bar */}

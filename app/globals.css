@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EDEDED;
+  --foreground: #2F2E2A;
   --color-gold: #C6BF00;   
   --color-white: #EBECD0;
   --color-hard: #D8D8AA;
@@ -18,13 +18,6 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
@@ -37,7 +30,7 @@ html, body {
   min-height: 100vh;
   width: 100%;
   display: flex;
-  color: var(--background);
+  color: var(--foreground);
   justify-content: center;
   align-items: flex-start;
 }
