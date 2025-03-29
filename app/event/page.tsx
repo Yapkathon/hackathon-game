@@ -21,7 +21,7 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
             </div>
             <div className={styles.container}>
                 {/* {chooseCareer ? ( */}
-                    <div>
+                    {/* <div>
                         <h2 className={styles.title}>Apply for your job</h2>
                     <div className={styles.jobList}>{jobs.map((job, index) => (
                         <div key={index} className={styles.jobCard}>
@@ -37,10 +37,10 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
                         </div>
                         ))}
                     </div>
-                    </div>
+                    </div> */}
                 {/* )
                 :
-                (
+                (*/
                 <div>
                     <h2 className={styles.title}>Oh no, a Car Accident!!!</h2>
                     <div className={styles.imageContainer}>
@@ -55,11 +55,11 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
                         <button className={`${styles.btn} ${styles.disabledOption}`}>☎️ Call Insurance<br />(Required: Car Insurance)</button>
                         <button className={`${styles.btn} ${styles.payOption}`}>💸 Pay Out of Pocket ($30k, 😁 -40)</button>
                         <button className={`${styles.btn} ${styles.settleOption}`}>
-                            🤝 Try to Settle Privately<br />(70%: $10k, 😁 -10 | 30%: $40k, 😁 -60)
+                            🤝 Try to Settle Privately<br />(70%: $10k, 😁 -10 | <br />30%: $40k, 😁 -60)
                         </button>
                     </div>
                 </div>
-                )} */}
+                /*)} */}
             </div>
       </div>
   );
