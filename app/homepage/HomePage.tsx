@@ -1,10 +1,18 @@
-import React from "react";
+"use client"; // only if you plan to add interactivity later
+
+import Image from "next/image";
 import "./HomePage.css";
 
-const HomePage: React.FC = () => {
+export default function HomePage() {
   return (
     <div className="container">
-      <img src="Logo.png" alt="FinAge Logo" className="logo" />
+      <Image
+        src="/Logo.png" // Make sure this image is in /public folder
+        alt="FinAge Logo"
+        width={100}
+        height={100}
+        className="logo"
+      />
       <h1 className="title">FinAge</h1>
       <p className="subtitle">Financial planning game</p>
 
@@ -18,6 +26,4 @@ const HomePage: React.FC = () => {
       </select>
     </div>
   );
-};
-
-export default HomePage;
+}
