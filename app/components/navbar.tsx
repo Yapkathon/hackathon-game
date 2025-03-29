@@ -8,8 +8,6 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isDashboard = pathname.startsWith("/dashboard");
   const isHomePage = pathname == "/";
-<<<<<<< Updated upstream
-=======
 
   const navLinks = [
     { label: "Port", href: "/dashboard" },
@@ -18,7 +16,6 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
     { label: "Bank", href: "/loan" },
     { label: "Action", href: "/action" },
   ];
->>>>>>> Stashed changes
 
   if (isDashboard) {
     return (
