@@ -99,22 +99,56 @@ export default function InvestmentPage() {
       ) : (
         ""
       )}
-      {isHelp ? (
-        <div className="flex flex-col fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] shadow-lg w-4/5 rounded-2xl border-2 border-[#b6b885] bg-white px-4 py-4 items-center gap-2 text-base">
-          <h2 className="font-semibold text-center text-3xl">
-            Guide On Investment
-          </h2>
-          Here's Guide
-          <button
-            onClick={() => setIsHelp(false)}
-            className="rounded-full border-2 border-black bg-[#b6b885] px-6 py-1.5"
-          >
-            Ok
-          </button>
-        </div>
-      ) : (
-        ""
-      )}
+      {isHelp && (
+  <div className="flex flex-col fixed left-[50%] top-[50%] z-50 
+                  translate-x-[-50%] translate-y-[-50%] shadow-lg 
+                  w-4/5 max-h-[70vh] rounded-2xl border-2 border-[#b6b885] 
+                  bg-white px-4 py-4 items-center gap-2 text-base 
+                  overflow-y-auto">
+
+    <h2 className="font-semibold text-center text-3xl mb-2">
+      Guide On Investment
+    </h2>
+
+    <p className="text-sm leading-5">
+      <strong>1. Know Your Goals:</strong> Are you saving for retirement, a home, or short-term gains? 
+      Understanding your objective helps guide your strategy.
+    </p>
+    <p className="text-sm leading-5">
+      <strong>2. Research & Diversify:</strong> Look at a company’s financial health, market trends, 
+      and don’t put all your money in one place. Spread out risk across different stocks, bonds, 
+      or funds.
+    </p>
+    <p className="text-sm leading-5">
+      <strong>3. Consider Risk Tolerance:</strong> If you prefer stability, stick to lower-volatility 
+      investments like bonds or established companies. If you can handle swings, growth stocks or 
+      emerging markets might fit.
+    </p>
+    <p className="text-sm leading-5">
+      <strong>4. Think Long-Term:</strong> Markets rise and fall daily. Historically, patient 
+      investors who hold quality assets tend to see better results over years, not days.
+    </p>
+    <p className="text-sm leading-5">
+      <strong>5. Keep Emotions in Check:</strong> Avoid panic-selling on dips or chasing quick 
+      profits. A disciplined approach often outperforms emotional decisions.
+    </p>
+    <p className="text-sm leading-5">
+      <strong>6. Monitor & Adjust:</strong> Review your portfolio regularly. Rebalance if one 
+      investment becomes too large a portion or if your goals change.
+    </p>
+    <p className="text-sm leading-5 mb-3">
+      <em>Tip:</em> Always invest money you can afford to leave invested for a while, and 
+      consider seeking professional advice for complex decisions.
+    </p>
+
+    <button
+      onClick={() => setIsHelp(false)}
+      className="rounded-full border-2 border-black bg-[#b6b885] px-6 py-1.5"
+    >
+      Ok
+    </button>
+  </div>
+)}
       <img
         src="investSign/investSign.png"
         alt="Invest Sign"
