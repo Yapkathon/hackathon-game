@@ -1,10 +1,19 @@
 "use client";
 import { useState } from "react";
 import styles from "./loan.module.css";
+import { useGame } from "../context/GameProvider";
 
 export default function Loan() {
   const [loan, setLoan] = useState(1000);
-  const maxLoan = 60000;
+  const maxLoan = 6000000;
+  const { player, setPlayer } = useGame();
+  function addMoney(m: number) {
+    setPlayer((prev) => ({
+      ...prev,
+      // Increase money by `amount`
+      money: prev.money + m,
+    }));
+  }
 
   return (
     <div className={styles.loan_container}>
@@ -47,7 +56,9 @@ export default function Loan() {
           for 10 years. Would you accept that?
         </div>
         <div className={styles.loan_buttons}>
-          <button className={styles.accept_btn}>Yeahhh</button>
+          <button className={styles.accept_btn} onClick={() => addMoney(loan)}>
+            Yeahhh
+          </button>
           <button className={styles.decline_btn}>Maybe later</button>
         </div>
       </div>
