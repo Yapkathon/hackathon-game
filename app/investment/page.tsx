@@ -8,6 +8,7 @@ export default function InvestmentPage() {
   const [selectedTab, setSelectedTab] = useState<Category>("Stock");
   const [selectedInvestment, setSelectedInvestment] = useState<number>(0);
   const [isPop, setIsPop] = useState<boolean>(false);
+  const [isHelp, setIsHelp] = useState<boolean>(false);
 
   const investments: Record<Category, any[]> = {
     Crypto: [
@@ -83,10 +84,29 @@ export default function InvestmentPage() {
     <div className="text-black p-3 flex flex-col items-center">
       {isPop ? (
         <div className="flex flex-col fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] shadow-lg w-4/5 rounded-2xl border-2 border-[#b6b885] bg-white px-4 py-4 items-center gap-2 text-base">
-          <h2 className="font-semibold text-center text-3xl">{selectedTab} Bought</h2>
-          You've bought {shares} of {investments[selectedTab][selectedInvestment].symbol}
+          <h2 className="font-semibold text-center text-3xl">
+            {selectedTab} Bought
+          </h2>
+          You've bought {shares} of{" "}
+          {investments[selectedTab][selectedInvestment].symbol}
           <button
             onClick={() => setIsPop(false)}
+            className="rounded-full border-2 border-black bg-[#b6b885] px-6 py-1.5"
+          >
+            Ok
+          </button>
+        </div>
+      ) : (
+        ""
+      )}
+      {isHelp ? (
+        <div className="flex flex-col fixed left-[50%] top-[50%] z-50 translate-x-[-50%] translate-y-[-50%] shadow-lg w-4/5 rounded-2xl border-2 border-[#b6b885] bg-white px-4 py-4 items-center gap-2 text-base">
+          <h2 className="font-semibold text-center text-3xl">
+            Guide On Investment
+          </h2>
+          Here's Guide
+          <button
+            onClick={() => setIsHelp(false)}
             className="rounded-full border-2 border-black bg-[#b6b885] px-6 py-1.5"
           >
             Ok
@@ -290,6 +310,23 @@ export default function InvestmentPage() {
           ))}
         </div>
       </TabBook>
+      <button
+        className="absolute right-1 bottom-14 rounded-full flex items-center justify-center cursor-pointer w-6 h-6 bg-[#ffffff] border-black border-2"
+        aria-label="Information"
+        onClick={() => setIsHelp(true)}
+      >
+        <span
+          style={{
+            lineHeight: 1,
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          ?
+        </span>
+      </button>
     </div>
   );
 }

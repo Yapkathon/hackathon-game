@@ -38,7 +38,9 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
   } else if (isHomePage) {
     return (
       <div className={styles.container}>
+
         <div className={styles.inner}>
+          
           <div className={styles.content}>{children}</div>
         </div>
       </div>
@@ -49,11 +51,17 @@ export default function NavBar({ children }: { children: React.ReactNode }) {
       <div className={styles.inner}>
         {/* Top Bar */}
         <div className={styles.topBar}>
-          <div className={styles.stat}>🎓 <span>{player.knowledge}</span></div>
-          <div className={styles.centerStatWrapper}>
-            <div className={styles.centerStat}>{formatLargeNumber(player.money)}</div>
+          <div className={styles.stat}>
+            🎓 <span>{player.knowledge}</span>
           </div>
-          <div className={styles.stat}>😄 <span>{player.happiness}</span></div>
+          <div className={styles.centerStatWrapper}>
+            <div className={styles.centerStat}>
+              {formatLargeNumber(player.money)}
+            </div>
+          </div>
+          <div className={styles.stat}>
+            😄 <span>{player.happiness}</span>
+          </div>
         </div>
 
         {/* Content */}
