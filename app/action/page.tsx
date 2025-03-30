@@ -59,17 +59,20 @@ const actionCards: Record<string, ActionProps> = {
 
 export default function Action() {
   const [sumAction, setSumAction] = useState<number>(0);
-  const [update, setUpdate] = useState<boolean>(false);
 
-  function ReceiveOnClick(a: string, b: boolean) {
+  function ReceiveOnClick(a: string) {
+    actionCards[a].clicked = !actionCards[a].clicked;
+    let sum = Object.values(actionCards).reduce(
+      (count, card) => count + (card.clicked ? card.goal : 0),
+      0
+    );
+    if (sum > 3) actionCards[a].clicked = !actionCards[a].clicked;
     setSumAction(
       Object.values(actionCards).reduce(
         (count, card) => count + (card.clicked ? card.goal : 0),
         0
       )
     );
-    actionCards[a].clicked = b;
-    setUpdate(!update);
   }
 
   return (
@@ -92,7 +95,7 @@ export default function Action() {
               value={value.value}
               cost={value.cost}
               goal={value.goal}
-              update={update}
+              cards={actionCards}
             />
           ))}
         </div>

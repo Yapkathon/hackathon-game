@@ -5,7 +5,7 @@
   padding: 10px;
   justify-content: center;
   width: 90%;
-  border-radius: 20px;
+  border-radius: 12px;
   margin-left: auto;
   margin-right: auto;
   background-color: #EBECD0;
@@ -14,7 +14,7 @@
 .head {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
   width: 100%;
   padding-left: 20px;
@@ -26,7 +26,7 @@
   font-size: 1.8rem;
   margin-top: 15px;
   width:fit-content ;
-  padding: 10px 20px;
+  padding: 5px 20px;
   border-radius: 15px;
   margin: auto;
 }
@@ -41,8 +41,8 @@
 }
 
 .status_bar {
-  padding: 10px 20px;
-  font-size: 1.2rem;
+  padding: 5px 20px;
+  font-size: 1rem;
   background:#EBECD0;
   border-radius: 10px;
   border: 1.5px solid #333;

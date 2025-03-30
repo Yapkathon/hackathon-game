@@ -85,8 +85,8 @@ export default function YearReview() {
         <h2 className="title">Year {year} Review</h2>
 
         <div className="mt-2 w-full  flex flex-col items-center">
-          <h3 className="text-lg font-semibold">Income</h3>
-          <table className="w-full mt-2 border-collapse text-xs shadow-lg">
+          <h3 className="text-base font-semibold">Income</h3>
+          <table className="w-full border-collapse text-xs shadow-lg">
             <thead>
               <tr className="bg-[#D8D8AA]">
                 <th className="border p-2 w-[38%]">Item</th>
@@ -157,8 +157,8 @@ export default function YearReview() {
           </table>
         </div>
         <div className="mt-2 w-full  flex flex-col items-center">
-          <h3 className="text-lg font-semibold">Expense</h3>
-          <table className="w-full mt-2 border-collapse border text-xs shadow-lg">
+          <h3 className="text-base font-semibold">Expense</h3>
+          <table className="w-full border-collapse border text-xs shadow-lg">
             <thead>
               <tr className="bg-[#D8D8AA]">
                 <th className="border p-2 w-[38%]">Item</th>
@@ -231,8 +231,8 @@ export default function YearReview() {
           </table>
         </div>
         <div className="mt-2 w-full  flex flex-col items-center ">
-          <h3 className="text-lg font-semibold">Stats</h3>
-          <table className="w-full mt-2 border-collapse border text-xs shadow-lg">
+          <h3 className="text-base font-semibold">Stats</h3>
+          <table className="w-full border-collapse border text-xs shadow-lg">
             <thead>
               <tr className="bg-[#D8D8AA]">
                 <th className="border p-2 w-[38%]">Item</th>

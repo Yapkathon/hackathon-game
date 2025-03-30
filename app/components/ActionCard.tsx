@@ -1,15 +1,22 @@
 // components/ActionCard.tsx
-import { useEffect, useState } from "react";
 import styles from "./actionCard.module.css";
 
+type ActionProps = {
+  icon: string; // emoji for the action (e.g. 📚)
+  value: string; // stat value (e.g. 🎓 +2)
+  cost: string; // cost from action (e.g. $ 10K)
+  goal: number; // 🎯 value
+  clicked: boolean; // 🎯 value
+};
+
 type ActionCardProps = {
-  sendOnClick: (a: string, b: boolean) => void;
+  sendOnClick: (a: string) => void;
   icon: string; // emoji for the action (e.g. 📚)
   title: string; // action name (e.g. Study)
   value: string; // stat value (e.g. 🎓 +2)
   cost: string; // cost from action (e.g. $ 10K)
   goal: number; // 🎯 value
-  update: boolean;
+  cards: Record<string, ActionProps>;
 };
 
 export default function ActionCard({
@@ -19,14 +26,8 @@ export default function ActionCard({
   value,
   cost,
   goal,
-  update,
+  cards,
 }: ActionCardProps) {
-  const [isChosen, setIsChosen] = useState<boolean>(false);
-
-  useEffect(() => {
-    () => alert(1);
-  }, [update]);
-
   return (
     <div className={styles.card}>
       <div className={styles.icon}>{icon}</div>
@@ -36,9 +37,9 @@ export default function ActionCard({
 
       {goal && (
         <button
-          className={styles.goalBox}
+          className={cards[title].clicked ? styles.goalBox2 : styles.goalBox}
           onClick={(e) => {
-            sendOnClick(title, !isChosen);
+            sendOnClick(title);
           }}
         >
           🎯 <span>{goal}</span>
