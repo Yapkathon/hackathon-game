@@ -12,12 +12,14 @@ export default function Expense() {
   type Category = "House" | "Car" | "Clothing" | "Food" | "Insurance";
   const [selectedTab, setSelectedTab] = useState<Category>("House");
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const { addCosmetic } = useGame();
+
+  // Call useGame() only once:
+  const { player, setPlayer, addCosmetic } = useGame();
 
   function parsePrice(price: string): number {
     // Remove the dollar sign and trim any whitespace.
     let value = price.replace("$", "").trim();
-  
+
     // Check for million (M) or thousand (K) notations.
     if (value.endsWith("M") || value.endsWith("m")) {
       const numberPart = parseFloat(value.slice(0, -1));
@@ -37,11 +39,10 @@ export default function Expense() {
       setSelectedIndex(index);
     }
   };
-  const { player, setPlayer } = useGame();
-  function Buy(m:number) {
+
+  function Buy(m: number) {
     setPlayer((prev) => ({
       ...prev,
-      // Increase money by `amount`
       money: prev.money - m,
     }));
   }
@@ -224,16 +225,17 @@ export default function Expense() {
                   <ClothingCard
                     {...item}
                     onBuy={() => {
-                      // Call the global addCosmetic function to store the cosmetic item in player
                       // Parse happiness (assumes format like "+5 Style")
                       const parsed = parseInt(item.happiness);
                       const happinessValue = isNaN(parsed) ? 0 : parsed;
+                      // Add cosmetic to the global inventory
                       addCosmetic({
                         name: item.name,
                         price: item.price,
                         imageUrl: item.imageUrl,
                         happiness: happinessValue,
                       });
+                      // Deduct money from player using Buy function
                       Buy(parsePrice(item.price));
                     }}
                   />
