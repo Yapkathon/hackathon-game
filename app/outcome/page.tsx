@@ -76,13 +76,13 @@ export default function YearReview() {
 
   return (
     <div>
-      <div className="head">
-        <div className="topic">Outcome</div>
-        <div className="topic">⌛️3/9</div>
+      <div className="head2">
+        <div className="topic2">Outcome</div>
+        <div className="topic2">⌛️3/9</div>
       </div>
 
-      <div className="container">
-        <h2 className="title">Year {year} Review</h2>
+      <div className="container2">
+        <h2 className="title2">Year {year} Review</h2>
 
         <div className="mt-2 w-full  flex flex-col items-center">
           <h3 className="text-base font-semibold">Income</h3>
