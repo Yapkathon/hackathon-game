@@ -16,7 +16,7 @@ export default function YearReview() {
       // Increase money by `amount`
       age: prev.age + 1,
     }));
-    router.push("/dashboard");
+    router.push("/leaderboard");
   }
 
   const income = [

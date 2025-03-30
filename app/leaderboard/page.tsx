@@ -1,4 +1,5 @@
-// app/leaderboard/page.tsx
+"use client";
+import { useRouter } from "next/navigation";
 import styles from "./leaderboard.module.css";
 
 const data = [
@@ -31,6 +32,7 @@ const data = [
 ];
 
 export default function LeaderboardPage() {
+  const router = useRouter();
   return (
     <div className={styles.container}>
       <div className={styles.title}>Leader board</div>
@@ -45,7 +47,9 @@ export default function LeaderboardPage() {
         {data.map((item, i) => (
           <div
             key={item.rank}
-            className={`${styles.row} ${item.rank === 3 ? styles.highlight : ""}`}
+            className={`${styles.row} ${
+              item.rank === 3 ? styles.highlight : ""
+            }`}
           >
             <div className={styles.rank}>{item.rank}</div>
             <div className={styles.name}>{item.name}</div>
@@ -53,6 +57,12 @@ export default function LeaderboardPage() {
           </div>
         ))}
       </div>
+      <button
+        className="mt-4 w-full  bg-[#81B64C] text-white py-2 rounded-lg"
+        onClick={() => router.push("/dashboard")}
+      >
+        Continue
+      </button>
     </div>
   );
 }
