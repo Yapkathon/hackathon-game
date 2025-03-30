@@ -12,7 +12,7 @@ import "./HomePage.css";
 
 export default function HomePage() {
   const router = useRouter();
-  const { setPlayer } = useGame();
+  const { player, setPlayer } = useGame();
 
   // State for user’s typed username + server + error messages
   const [username, setUsername] = useState("");

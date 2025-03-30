@@ -20,7 +20,7 @@ export default function Event(/*{ chooseCareer = false }: EventProps*/) {
         <div>
             <div className={styles.head}>
                 <div className={styles.topic}>Event</div>
-                <div className={styles.topic}>⌛️6/9</div>
+                <div className={styles.topic}>⌛️4/9</div>
             </div>
             <div className={styles.container}>
                 {/* {chooseCareer ? ( */}
