@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./carCard.module.css";
+import { useGame } from "../context/GameProvider";
 
 type CarCardProps = {
   imageUrl: string;
@@ -9,36 +10,53 @@ type CarCardProps = {
   specs: string[];
 };
 
+function parsePrice(price: string): number {
+  // Remove the dollar sign and trim any whitespace.
+  let value = price.replace("$", "").trim();
+
+  // Check for million (M) or thousand (K) notations.
+  if (value.endsWith("M") || value.endsWith("m")) {
+    const numberPart = parseFloat(value.slice(0, -1));
+    return numberPart * 1_000_000;
+  } else if (value.endsWith("K") || value.endsWith("k")) {
+    const numberPart = parseFloat(value.slice(0, -1));
+    return numberPart * 1_000;
+  } else {
+    return parseFloat(value);
+  }
+}
+
 export default function CarCard({
   imageUrl,
   name,
   price,
   specs,
 }: CarCardProps) {
-  // State to show/hide the detail popup
+  // Call useGame() inside the component
+  const { player, setPlayer } = useGame();
   const [showDetail, setShowDetail] = useState(false);
-
-  // State to show/hide the final confirmation popup
   const [showConfirmation, setShowConfirmation] = useState(false);
-
-  // The text for confirmation header and sub-header
   const [confirmHeader, setConfirmHeader] = useState("");
   const [confirmMessage, setConfirmMessage] = useState("");
+
+  // Function to update money when buying a car
+  function Buy(m: number) {
+    setPlayer((prev) => ({
+      ...prev,
+      money: prev.money - m,
+    }));
+  }
 
   const handleViewDetail = () => {
     setShowDetail(true);
   };
 
   const handleBuy = () => {
-    // Close detail popup
     setShowDetail(false);
-
-    // Set confirmation text
     setConfirmHeader("Asset Bought");
     setConfirmMessage(`You've bought ${name}`);
-
-    // Show confirmation popup
     setShowConfirmation(true);
+    Buy(parsePrice(price));
   };
 
   return (
@@ -50,7 +68,6 @@ export default function CarCard({
 
         <div className={styles.headerRow}>
           <div className={styles.price}>{price}</div>
-          {/* "View Detail" opens the detail popup */}
           <button className={styles.button} onClick={handleViewDetail}>
             View Detail
           </button>
@@ -66,22 +83,16 @@ export default function CarCard({
         </div>
       </div>
 
-      {/* ─────────────────────────────────────────────────────────────────
-          DETAIL POPUP (for "Buy" only)
-      ───────────────────────────────────────────────────────────────── */}
       {showDetail && (
         <>
-          {/* Overlay (clicking it also closes the popup) */}
           <div
             className="fixed inset-0 bg-black/50 z-50"
             onClick={() => setShowDetail(false)}
           />
-          {/* Popup Content */}
           <div className="fixed top-1/2 left-1/2 w-[280px] max-w-[90%] -translate-x-1/2 -translate-y-1/2 bg-white z-50 rounded-md p-4 shadow-md flex flex-col gap-3 border border-black">
             <h2 className="font-bold text-lg text-center">Car Options</h2>
             <p className="text-center">{name}</p>
             <p className="text-center">Price: {price}</p>
-
             <div className="flex justify-center mt-2">
               <button
                 className="bg-blue-500 text-white py-1 px-3 rounded-md"
@@ -93,7 +104,6 @@ export default function CarCard({
                 Buy
               </button>
             </div>
-
             <button
               className="mt-2 text-sm text-gray-600 underline"
               onClick={() => setShowDetail(false)}
@@ -104,17 +114,12 @@ export default function CarCard({
         </>
       )}
 
-      {/* ─────────────────────────────────────────────────────────────────
-          CONFIRMATION POPUP (after buying)
-      ───────────────────────────────────────────────────────────────── */}
       {showConfirmation && (
         <>
-          {/* Overlay */}
           <div
             className="fixed inset-0 bg-black/50 z-50"
             onClick={() => setShowConfirmation(false)}
           />
-          {/* Confirmation Box */}
           <div className="fixed top-1/2 left-1/2 w-[280px] max-w-[90%] -translate-x-1/2 -translate-y-1/2 bg-[#f0f0d0] z-50 rounded-md p-4 shadow-md flex flex-col items-center gap-2 border border-black">
             <h2 className="font-bold text-xl">{confirmHeader}</h2>
             <p className="text-center text-sm">{confirmMessage}</p>

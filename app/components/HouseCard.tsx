@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useGame } from "../context/GameProvider";
 
 type HouseCardProps = {
   imageUrl: string;
@@ -10,6 +11,22 @@ type HouseCardProps = {
   size: string;
   address: string;
 };
+function parsePrice(price: string): number {
+  // Remove the dollar sign and trim any whitespace.
+  let value = price.replace("$", "").trim();
+
+  // Check for million (M) or thousand (K) notations.
+  if (value.endsWith("M") || value.endsWith("m")) {
+    const numberPart = parseFloat(value.slice(0, -1));
+    return numberPart * 1_000_000;
+  } else if (value.endsWith("K") || value.endsWith("k")) {
+    const numberPart = parseFloat(value.slice(0, -1));
+    return numberPart * 1_000;
+  } else {
+    return parseFloat(value);
+  }
+}
+
 
 export default function HouseCard({
   imageUrl,
@@ -29,6 +46,13 @@ export default function HouseCard({
   // The text for confirmation header and sub-header
   const [confirmHeader, setConfirmHeader] = useState("");
   const [confirmMessage, setConfirmMessage] = useState("");
+  const { player, setPlayer } = useGame();
+  function Buy(m: number) {
+    setPlayer((prev) => ({
+      ...prev,
+      money: prev.money - m,
+    }));
+  }
 
   // Handler for opening detail popup
   const handleViewDetail = () => {
@@ -44,6 +68,7 @@ export default function HouseCard({
     setConfirmMessage(`You've bought ${title}`);
     // Show confirmation popup
     setShowConfirmation(true);
+    Buy(parsePrice(price));
   };
 
   // Handler for user clicking Rent
