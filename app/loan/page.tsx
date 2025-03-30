@@ -1,6 +1,16 @@
+import { useGame } from "../context/GameProvider"
 import styles from "./loan.module.css"
 
+
 export default function Loan() {
+  const { player, setPlayer } = useGame();
+  function addMoney(m:number) {
+    setPlayer((prev) => ({
+      ...prev,
+      // Increase money by `amount`
+      money: prev.money + m,
+    }));
+  }
     return (
       <div className={styles.loan_container}>
         <div className={styles.loan_card}>

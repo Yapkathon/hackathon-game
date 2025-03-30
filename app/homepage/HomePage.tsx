@@ -53,6 +53,7 @@ export default function HomePage() {
       knowledge: startData.knowledge,
       occupation: startData.occupation,
       age: startData.age,
+      cosmetics: startData.cosmetics
     });
 
     // 4) Go to the dashboard
